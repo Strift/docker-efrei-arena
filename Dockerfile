@@ -9,13 +9,14 @@
 FROM debian:sid
 LABEL maintainer "Strift <lau.cazanove@gmail.com>"
 
-MAINTAINER Strift
-
 RUN apt-get update
 RUN apt-get install -y g++
 RUN apt-get install -y libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
 
-COPY ./Link-Rupees-Rush/arène_code /usr/src/app
+ARG REPO_PATH
+
+COPY $REPO_PATH/arène_code /usr/src/app
+COPY $REPO_PATH/Images /usr/src/app
 WORKDIR /usr/src/app
 
 RUN g++ $(sdl-config --cflags) -o app main.cpp $(sdl-config --libs) -lSDL_image -lSDL_mixer -lSDL_ttf
