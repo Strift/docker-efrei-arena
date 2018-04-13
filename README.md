@@ -3,6 +3,8 @@ Efrei Arena Docker image
 
 This image is based on Debian image.
 
+> You actually have to rebuild the image for each student, because the code may change; it still is pretty straightforward though.
+
 How to build
 ------------
 
