@@ -23,7 +23,7 @@ COPY $FILE_PATH /usr/src/app
 
 # Building the app
 WORKDIR /usr/src/app
-RUN g++ $(sdl-config --cflags) -o app main.cpp $(sdl-config --libs) -lSDL_image -lSDL_mixer -lSDL_ttf
+RUN g++ $(sdl-config --cflags) -o app main.cpp $FILE_PATH $(sdl-config --libs) -lSDL_image -lSDL_mixer -lSDL_ttf
 
 # Running
 CMD ["./app"]
